@@ -19,6 +19,9 @@ public class EmployeeProvisionController {
 
     @PostMapping("/add")
     public String add(@Validated @RequestBody final EmployeeRest employeeRestParam) {
+        if (employeeRestParam.getHeight() > 230) {
+            throw new IllegalArgumentException("xyz");
+        }
         return "OK";
     }
 
@@ -29,5 +32,6 @@ public class EmployeeProvisionController {
         }
         return "OK";
     }
+
 
 }

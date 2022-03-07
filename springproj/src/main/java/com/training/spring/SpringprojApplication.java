@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Import;
 
+import com.training.ms.error.ErrorConfig;
 import com.training.spring.hello.Hello;
 
 import a.b.c.AbcFeatureConfig;
@@ -18,7 +19,10 @@ import a.b.c.AbcFeatureConfig;
 //                                            "a.b.c"
 //})
 @SpringBootApplication
-@Import(AbcFeatureConfig.class)
+@Import({
+          AbcFeatureConfig.class,
+          ErrorConfig.class
+})
 public class SpringprojApplication {
 
     // Field Injection

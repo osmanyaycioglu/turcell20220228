@@ -6,17 +6,15 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Positive;
 import javax.validation.constraints.Size;
 
-import com.training.spring.validation.StartWith;
-
 public class EmployeeRest {
 
     @NotEmpty
     @Size(max = 25, min = 2, message = "Name 2 ile 25 arasında olmalı")
-    @StartWith("n:")
+    // @StartWith("n:")
     private String  name;
     @NotEmpty
     @Size(max = 25, min = 2, message = "Name 2 ile 25 arasında olmalı")
-    @StartWith("s:")
+    // @StartWith("s:")
     private String  surname;
     @Max(300)
     @Min(50)
