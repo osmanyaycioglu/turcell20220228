@@ -5,7 +5,9 @@ import java.util.List;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
+import com.training.spring.employee.management.models.Division;
 import com.training.spring.employee.management.models.Employee;
+import com.training.spring.employee.management.rest.models.DivisionRest;
 import com.training.spring.employee.management.rest.models.EmployeeRest;
 
 @Mapper
@@ -21,5 +23,8 @@ public interface EmployeeMapper {
 
     List<EmployeeRest> fromEmployees(List<Employee> employes);
 
+    Division toDivision(DivisionRest divisionRestParam);
+
+    DivisionRest fromDivision(Division divisionParam);
 
 }

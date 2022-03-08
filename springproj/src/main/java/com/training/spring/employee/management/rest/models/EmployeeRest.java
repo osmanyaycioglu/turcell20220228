@@ -11,19 +11,21 @@ public class EmployeeRest {
     @NotEmpty
     @Size(max = 25, min = 2, message = "Name 2 ile 25 arasında olmalı")
     // @StartWith("n:")
-    private String  name;
+    private String       name;
     @NotEmpty
     @Size(max = 25, min = 2, message = "Name 2 ile 25 arasında olmalı")
     // @StartWith("s:")
-    private String  surname;
+    private String       surname;
     @Max(300)
     @Min(50)
     @Positive
-    private Integer height;
+    private Integer      height;
     @Max(300)
     @Min(30)
     @Positive
-    private Integer weight;
+    private Integer      weight;
+
+    private DivisionRest division;
 
     public String getName() {
         return this.name;
@@ -68,5 +70,13 @@ public class EmployeeRest {
                + ", weight="
                + this.weight
                + "]";
+    }
+
+    public DivisionRest getDivision() {
+        return this.division;
+    }
+
+    public void setDivision(final DivisionRest divisionParam) {
+        this.division = divisionParam;
     }
 }
