@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.training.spring.employee.management.models.EmployeeRest;
+import com.training.spring.employee.management.rest.models.EmployeeRest;
 
 @RestController
 @RequestMapping("/api/v1/employee/query")

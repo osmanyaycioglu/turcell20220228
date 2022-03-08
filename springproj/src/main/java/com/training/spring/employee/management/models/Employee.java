@@ -1,28 +1,10 @@
 package com.training.spring.employee.management.models;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Positive;
-import javax.validation.constraints.Size;
+public class Employee {
 
-public class EmployeeRest {
-
-    @NotEmpty
-    @Size(max = 25, min = 2, message = "Name 2 ile 25 arasında olmalı")
-    // @StartWith("n:")
     private String  name;
-    @NotEmpty
-    @Size(max = 25, min = 2, message = "Name 2 ile 25 arasında olmalı")
-    // @StartWith("s:")
     private String  surname;
-    @Max(300)
-    @Min(50)
-    @Positive
     private Integer height;
-    @Max(300)
-    @Min(30)
-    @Positive
     private Integer weight;
 
     public String getName() {
@@ -59,7 +41,7 @@ public class EmployeeRest {
 
     @Override
     public String toString() {
-        return "Person [name="
+        return "Employee [name="
                + this.name
                + ", surname="
                + this.surname
