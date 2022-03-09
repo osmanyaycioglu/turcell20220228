@@ -6,8 +6,11 @@ import javax.annotation.PreDestroy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Import;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 import com.training.ms.error.ErrorConfig;
 import com.training.spring.hello.Hello;
@@ -23,6 +26,9 @@ import a.b.c.AbcFeatureConfig;
           AbcFeatureConfig.class,
           ErrorConfig.class
 })
+@EnableEurekaClient
+@EnableScheduling
+@EnableFeignClients
 public class SpringprojApplication {
 
     // Field Injection

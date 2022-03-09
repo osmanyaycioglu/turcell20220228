@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.v3.oas.annotations.Operation;
+
 @RestController
 @RequestMapping("/first")
 public class FirstRestController {
@@ -18,6 +20,7 @@ public class FirstRestController {
 
     // /first/hello2/osman/yaycıoğlu
     @GetMapping("/hello2/{abc}/{xyz}")
+    @Operation(tags = "xyz")
     public String helloEx(@PathVariable("abc") final String name,
                           @PathVariable("xyz") final String surname) {
         return "hello 2 " + name + " " + surname;
@@ -25,12 +28,14 @@ public class FirstRestController {
 
     // /first/hello3?abc=osman&xyz=yaycıoğlu
     @GetMapping("/hello3")
+    @Operation(tags = "xyz")
     public String helloEx3(@RequestParam("abc") final String name,
                            @RequestParam("xyz") final String surname) {
         return "hello 3 " + name + " " + surname;
     }
 
     @GetMapping("/hello4/{abc}")
+    @Operation(tags = "xyz")
     public String helloEx4(@PathVariable("abc") final String name,
                            @RequestParam("xyz") final String surname) {
         return "hello 4 " + name + " " + surname;
