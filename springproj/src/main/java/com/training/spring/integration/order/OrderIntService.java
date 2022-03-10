@@ -51,7 +51,7 @@ public class OrderIntService {
         orderLoc.setEmployeeId(employeeParam.getEmpId());
         orderLoc.setAmount(amount);
         orderLoc.setType(type);
-        String resultLoc = this.restTemplate.postForObject("http://ORDER/api/v1/order/management/place",
+        String resultLoc = this.restTemplate.postForObject("http://APIGATEWAY-BACKOFFICE/api/v1/order/management/place",
                                                            orderLoc,
                                                            String.class);
         return resultLoc;

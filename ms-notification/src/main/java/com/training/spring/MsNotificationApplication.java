@@ -7,16 +7,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Import;
-
-import com.training.ms.error.ErrorConfig;
 
 @SpringBootApplication
 @EnableEurekaClient
 @EnableRabbit
-@Import(ErrorConfig.class)
-public class MsOrderApplication {
-
+public class MsNotificationApplication {
 
     @Bean
     public MessageConverter messageConverter() {
@@ -24,7 +19,7 @@ public class MsOrderApplication {
     }
 
     public static void main(final String[] args) {
-        SpringApplication.run(MsOrderApplication.class,
+        SpringApplication.run(MsNotificationApplication.class,
                               args);
     }
 
