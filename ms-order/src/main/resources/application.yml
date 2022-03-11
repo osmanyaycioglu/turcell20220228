@@ -30,3 +30,31 @@ spring:
     name: order
   config:
     import: configserver:http://127.0.0.1:8888
+resilience4j:
+  circuitbreaker:
+    metrics:
+      enabled: true
+    instances:
+      mycb:
+        sliding-window-type: count-based
+        sliding-window-size: 20
+        minimum-number-of-calls: 10
+        failure-rate-threshold: 30
+        wait-duration-in-open-state: 10s
+        automatic-transition-from-open-to-half-open-enabled: false
+        permitted-number-of-calls-in-half-open-state: 10
+        max-wait-duration-in-half-open-state: 10s
+        allow-health-indicator-to-fail: true
+        slow-call-duration-threshold: 500
+        slow-call-rate-threshold: 40
+  retry:
+    metrics:
+      enabled: true
+    instances:
+      xyzretry:
+        max-attempts: 2
+        wait-duration: '0s'
+        result-predicate: com.training.spring.resillience.CalleeResultChecker
+        retry-exception-predicate: com.training.spring.resillience.CalleeExceptionChecker
+          
+        

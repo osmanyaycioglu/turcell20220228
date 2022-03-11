@@ -17,6 +17,8 @@ import com.training.ms.error.RestException;
 import com.training.spring.employee.management.models.Employee;
 import com.training.spring.order.management.Order;
 
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+
 @Service
 public class OrderIntService {
 
@@ -38,6 +40,7 @@ public class OrderIntService {
         }
     }
 
+    @CircuitBreaker(name = "mycb")
     public String placeOrder(final Employee employeeParam,
                              final String type,
                              final Integer amount) {
