@@ -9,4 +9,7 @@ public interface IOrderManagementController {
     @PostMapping("/api/v1/order/management/place")
     public String place(@RequestBody final Order order);
 
+    @PostMapping("/api/v1/order/management/placex")
+    public String placex(@RequestBody final Order order);
+
 }

@@ -1,0 +1,32 @@
+info:
+  app:
+    desc: '@project.description@'
+    version: '@project.version@'
+  help:
+    info: wrt
+  my:
+    app:
+      info: deneme test
+    xyz: abc
+management:
+  info:
+    env:
+      enabled: true
+microservice:
+  info:
+    bounded-context: employee-backoffice
+    name: ${spring.application.name}
+server:
+  port: ${PORT:10000}
+  tomcat:
+    keep-alive-timeout: 120000
+    max-connections: 500
+    max-keep-alive-requests: 200
+    threads:
+      max: 200
+      min-spare: 50
+spring:
+  application:
+    name: order
+  config:
+    import: configserver:http://127.0.0.1:8888

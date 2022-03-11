@@ -24,4 +24,12 @@ public class EmployeeProvisionService {
         return placeOrderLoc;
     }
 
+    public String addx(final Employee employeeParam) {
+        String placeOrderLoc = this.orderIntService.placexOrder(employeeParam,
+                                                                "defter",
+                                                                10);
+        return placeOrderLoc;
+    }
+
 }
+

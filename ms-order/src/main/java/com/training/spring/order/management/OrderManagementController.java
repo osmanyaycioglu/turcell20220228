@@ -36,4 +36,9 @@ public class OrderManagementController implements IOrderManagementController {
         return message;
     }
 
+    @Override
+    public String placex(final Order orderParam) {
+        throw new IllegalArgumentException("test error");
+    }
+
 }

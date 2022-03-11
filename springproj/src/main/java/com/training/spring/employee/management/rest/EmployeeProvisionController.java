@@ -30,6 +30,12 @@ public class EmployeeProvisionController {
         return this.eps.add(employeeLoc);
     }
 
+    @PostMapping("/addx")
+    public String addx(@Validated @RequestBody final EmployeeRest employeeRestParam) {
+        Employee employeeLoc = EmployeeMapper.mapper.toEmployee(employeeRestParam);
+        return this.eps.addx(employeeLoc);
+    }
+
     @GetMapping("/deactivate")
     public String deactivate(@NotNull @RequestParam("empid") final Long employeeId) {
         if (employeeId == null) {

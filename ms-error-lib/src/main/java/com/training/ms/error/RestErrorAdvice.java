@@ -30,6 +30,15 @@ public class RestErrorAdvice {
                    .setErrorCode(1002);
     }
 
+    @ExceptionHandler(RestException.class)
+    @ResponseStatus(HttpStatus.BAD_GATEWAY)
+    public ErrorObj handleException(final RestException exp) {
+        return this.createBaseError()
+                   .setDesc("client exception")
+                   .setErrorCode(11909)
+                   .addSuberror(exp.getErrorObj());
+    }
+
     private ErrorObj createBaseError() {
         return ErrorObj.create()
                        .setBoundedcontext(this.msi.getBoundedContext())

@@ -1,0 +1,60 @@
+app:
+  hello:
+    greeting:
+      str: ola
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+feign:
+  client:
+    config:
+      default:
+        connect-timeout: 1000
+        read-timeout: 5000
+        decode404: true
+        request-interceptors:
+        - com.training.spring.feign.interceptor.FeignInterceptor
+microservice:
+  info:
+    bounded-context: employee-core
+    name: employee
+server:
+  error:
+    include-binding-errors: always
+    include-exception: true
+    include-message: always
+    include-stacktrace: always
+  port: ${PORT:11000}
+spring:
+  application:
+    name: employee
+  config:
+    import: configserver:http://127.0.0.1:8888
+  datasource:
+    driverClassName: org.h2.Driver
+    password: password
+    url: jdbc:h2:file:./data/demo
+    username: sa
+  h2:
+    console:
+      enabled: true
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+  profiles:
+    active: dev
+    default: live
+  cloud:
+    loadbalancer:
+      retry:
+        enabled: true
+        max-retries-on-next-service-instance: 3
+        max-retries-on-same-service-instance: 0
+        retry-on-all-operations: true

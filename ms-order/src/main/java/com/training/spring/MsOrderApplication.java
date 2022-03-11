@@ -9,12 +9,16 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
 
+import com.training.ms.error.ErrorClientConfig;
 import com.training.ms.error.ErrorConfig;
 
 @SpringBootApplication
 @EnableEurekaClient
 @EnableRabbit
-@Import(ErrorConfig.class)
+@Import({
+          ErrorConfig.class,
+          ErrorClientConfig.class
+})
 public class MsOrderApplication {
 
 

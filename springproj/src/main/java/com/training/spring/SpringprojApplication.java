@@ -12,6 +12,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Import;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
+import com.training.ms.error.ErrorClientConfig;
 import com.training.ms.error.ErrorConfig;
 import com.training.spring.hello.Hello;
 
@@ -24,7 +25,8 @@ import a.b.c.AbcFeatureConfig;
 @SpringBootApplication
 @Import({
           AbcFeatureConfig.class,
-          ErrorConfig.class
+          ErrorConfig.class,
+          ErrorClientConfig.class
 })
 @EnableEurekaClient
 @EnableScheduling
